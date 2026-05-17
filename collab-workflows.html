@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaboration Workflows — Adam Hajdúch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f9f7f4;
+      min-width: 1440px;
+    }
+
+    :root {
+      --side: max(104px, calc((100vw - 1232px) / 2));
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 104px;
+    }
+
+    /* ── Typography ── */
+    .hero-title {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 80px;
+      line-height: 100px;
+      letter-spacing: -2.176px;
+      color: #140f0b;
+    }
+
+    h2 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: #140f0b;
+      max-width: 1165px;
+    }
+
+    h3 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 32px;
+      letter-spacing: -1px;
+      color: #140f0b;
+      max-width: 1165px;
+    }
+
+    h4 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -1px;
+      color: #140f0b;
+      max-width: 1165px;
+    }
+
+    .label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: #746d67;
+    }
+
+    .body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      color: #3a3836;
+    }
+
+    .body li {
+      margin-left: 27px;
+      line-height: 32px;
+    }
+
+    .meta-items {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 40px;
+      color: #3a3836;
+    }
+
+    .caption {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #3a3836;
+      max-width: 761px;
+    }
+
+    .caption a { color: #3a3836; }
+
+    /* ── Layout ── */
+    .s {
+      width: 100%;
+      padding: 120px var(--side);
+    }
+
+    .s h2 { margin-bottom: 32px; }
+    .s h3 { margin-bottom: 32px; }
+    .s h4 { margin-bottom: 32px; }
+
+    .two-col { display: flex; gap: 16px; }
+    .col { width: 608px; flex-shrink: 0; }
+    .col-grow { flex: 1; min-width: 0; }
+
+    /* ── Full-width image ── */
+    .img-full { width: 100%; display: block; }
+
+    /* ── Visual block: padded outer + beige bg + image centered ── */
+    .vb {
+      width: 100%;
+      padding: 0 var(--side);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .vb-bg {
+      background: #ede9e4;
+      display: flex;
+      justify-content: center;
+      padding: 150px 0;
+      width: 100%;
+    }
+
+    .vb-frame {
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .vb-frame img {
+      position: absolute;
+      max-width: none;
+    }
+
+    .vb-frame.simple img {
+      position: static;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Screenshot with subtle shadow */
+    .vb-shadow {
+      box-shadow: 0 0 0.743px rgba(0,0,0,.07), 0 7.432px 18.58px rgba(0,0,0,.12);
+    }
+
+    /* ── Diagrams centered section ── */
+    .diagrams {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 100px;
+      padding: 60px var(--side) 100px;
+    }
+
+    .diagram-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .diagram-frame {
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .diagram-frame img {
+      position: absolute;
+      max-width: none;
+    }
+
+    .diagram-caption {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #3a3836;
+      text-align: center;
+    }
+
+    /* ── Footer nav ── */
+    .footer-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 64px var(--side);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+    }
+
+    .nav-label {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 34px;
+      color: #140f0b;
+      white-space: nowrap;
+    }
+
+    .nav-arrow { display: block; width: 67.368px; height: 23.158px; }
+    .nav-arrow-back { transform: scaleX(-1); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero heading -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <h1 class="hero-title">Collaboration Workflows enabled multiple users to work on Quote in parallel, at the same time.</h1>
+  </div>
+
+  <!-- My role + Results -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <div class="two-col">
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">My role</p>
+        <div class="meta-items">
+          <p>End-to-end product design</p>
+          <p>Shaped system architecture in close collaboration with PM and engineering</p>
+          <p>Led concept testing with 10–15 users</p>
+        </div>
+      </div>
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">Results</p>
+        <div class="meta-items">
+          <p>Exxon Mobil - one of top 10 customers, renewed their contract with Pricefx specifically because of this feature</p>
+          <p>Pricefx was able to raise their price to Exxon on renewal</p>
+          <p>Shell - another top 10 customer is now testing the feature</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview image (full width) -->
+  <img class="img-full" src="https://www.figma.com/api/mcp/asset/35127ee8-1035-4a3e-a112-1aaf4100ccf9" alt="Collaboration Workflows overview">
+
+  <!-- What is Quoting? -->
+  <div class="s">
+    <h2>What is Quoting?</h2>
+    <p class="body">Quoting is part of Pricefx product, which allows businesses to negotiate profitable pricing for their products. As product designer, I was tasked to introduce collaboration and communication between users into this process, working side by side with PM and Dev team.</p>
+  </div>
+
+  <!-- When time is of essence -->
+  <div class="s">
+    <h2>When time is of essence</h2>
+    <div class="two-col">
+      <p class="body col">In the world of pricing everything is about timing. Whether it's setting strategic pricing or reacting to sudden changes that are impacting your price - being quick is of utmost importance. This is true also for Quoting, where you want to make the best possible offer to your customer, while grabbing as much revenue as you can, for yourself.<br><br>When Quote arrives even half day later than agreed, it might mean that your customer will choose someone else and you're loosing big time.</p>
+      <p class="body col">Back in the August of 2024, we've heard rumors that this is happening to some of our customers. Creating Quote took too long and if customer wasn't happy about it, Quote has to be reworked and entire process started again. There were rumors that this process is taking as much as 19 days for some of our customer.<br><br>In that moment we knew - it's time to get our hands dirty again!</p>
+    </div>
+  </div>
+
+  <!-- Picture worth of thousand words -->
+  <div class="s">
+    <h2>Picture worth of thousand words</h2>
+    <div class="two-col">
+      <p class="body col">It was late August and the next release was drawing closer and closer. We heard rumors, but we didn't know what was causing the problems for sure. Was it sheer amount of products in the Quote, that was causing delays? Or was it rigid process of approvals that made Quote go in circles before it was completed? Or could it be that responsible people needed to take turns on Quote to complete it?</p>
+      <div class="body col">
+        <p>I knew I had to talk to users to find out, but I didn't have enough time to do full-blown research study with interviews. With other projects on my hands, it just wasn't possible. There had to be another way.</p>
+        <br>
+        <p>And then it occurred to me - why not compile everything we know into quick and dirty prototype and show it to users right away?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two enter, one leaves -->
+  <div class="s">
+    <h2>Two enter, one leaves</h2>
+    <div class="two-col">
+      <p class="body col">When I went searching for evidence, I could never anticipate what I was going to find out. It looked like our users needed to send emails to each other to make sure that certain changes in Quote will happen. At first, I didn't understand. Why would they need to do this? Wouldn't it be much easier to just make changes themselves?</p>
+      <div class="body col">
+        <p>Puzzled, but determined, we sat down for brainstorming sessions and came up with two approaches. One was assuming that actual editing of Quote is done by single user and this user gets information about what to input into Quote via emails from colleagues. Second one was complete opposite - we assumed that everyone is making edits.</p>
+        <br>
+        <p>I quickly jotted down two concepts with help of HTML export from current app and we went to our users.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diagrams -->
+  <div class="diagrams">
+    <div class="diagram-item">
+      <div class="diagram-frame" style="width: 366px; height: 153.725px;">
+        <img src="https://www.figma.com/api/mcp/asset/5a958bc8-c232-499d-8fbd-fa9ef4a44c76" alt="Diagram: single creator" style="width: 110.21%; height: 100%; left: -5.11%; top: 0;">
+      </div>
+      <p class="diagram-caption" style="width: 381px;">1 Creator and 1 Reviewer. Only Creator edits the Quote.</p>
+    </div>
+    <div class="diagram-item">
+      <div class="diagram-frame" style="width: 579px; height: 239.793px;">
+        <img src="https://www.figma.com/api/mcp/asset/661288ce-dbce-4d4b-a96c-d3994dd94945" alt="Diagram: parallel editing" style="width: 106.51%; height: 115.62%; left: -3.24%; top: -7.4%;">
+      </div>
+      <div class="diagram-caption" style="width: 428px;">
+        <p>Everyone edits the Quote - Creator and Reviewer as well.</p>
+        <p>Multiple reviews going on in parallel.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual: Prototype screenshots (stacked, gap 160px) -->
+  <div style="width: 100%; display: flex; flex-direction: column; gap: 160px;">
+    <div class="vb">
+      <div class="vb-bg">
+        <div class="vb-frame vb-shadow" style="width: 848px; height: 529.653px;">
+          <img src="https://www.figma.com/api/mcp/asset/ea5b2a94-5515-42d6-9e0e-078e6cafa304" alt="Reviewer adding comment" style="width: 101.44%; height: 102.41%; left: -0.72%; top: -0.94%;">
+        </div>
+      </div>
+      <p class="caption">Reviewer adding comment to specific product, before denying and sending all items back to creator</p>
+    </div>
+    <div class="vb">
+      <div class="vb-bg">
+        <div class="vb-frame vb-shadow" style="width: 848px; height: 528.753px;">
+          <img src="https://www.figma.com/api/mcp/asset/aaa863e9-c802-4cd2-9e9b-c7f2235a7cfd" alt="Creator going through comments" style="width: 101.24%; height: 102.31%; left: -0.52%; top: -0.94%;">
+        </div>
+      </div>
+      <p class="caption">Creator going through comments and making adjustments</p>
+    </div>
+  </div>
+
+  <!-- After series of calls -->
+  <div class="s" style="padding-top: 100px; padding-bottom: 100px;">
+    <div class="body">
+      <p>After series of calls message was getting quite clear.</p>
+      <br>
+      <p>No one user has enough competency and knowledge to make correct decisions about pricing of all items. To complete Quote, you need a lot of people working together in parallel.</p>
+    </div>
+  </div>
+
+  <!-- How does it actually work? -->
+  <div class="s">
+    <h2>How does it actually work?</h2>
+    <p class="body">With multiple users coming in and out into the process, and also responsible for different parts of products in the Quote, one thing was very clear. We needed to understand the process in and out if we were ever to be successful in solving this issue. So we buried ourselves in MIRO and after many iterations we were able to create process that would fit our customers' businesses like tailor-made suit.</p>
+  </div>
+
+  <!-- Diagram 3: Process flow -->
+  <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 101px; padding-bottom: 0;">
+    <div style="width: 1063px; height: 1237px; position: relative; overflow: hidden; flex-shrink: 0;">
+      <img src="https://www.figma.com/api/mcp/asset/8ff44011-0061-43ed-99c7-ba3b0b2c490d" alt="Process flow diagram" style="position: absolute; width: 100%; height: 101.59%; left: 0; top: 0; max-width: none;">
+    </div>
+    <p class="diagram-caption" style="width: 404px;">
+      Simplified process. View more detailed process <a href="https://drive.google.com/file/d/1WT8qUf3lSUYYN2aF5o-Qsn4mKz6cIT6Z/view?usp=sharing" target="_blank" style="color:#3a3836;">here</a>.
+    </p>
+  </div>
+
+  <!-- Stitching it together -->
+  <div class="s" style="padding-bottom: 80px;">
+    <h2>Stitching it together</h2>
+    <p class="body">There were two major parts we needed to address - accepting and rejecting of products in Quote and their transfer back and forth between users, based on their status, and enabling effective communication between collaborators.</p>
+  </div>
+
+  <!-- Accept - reject mechanism -->
+  <div class="s" style="padding-top: 0; padding-bottom: 80px;">
+    <div style="display: flex; flex-direction: column; gap: 80px;">
+      <div>
+        <h3>Accept - reject mechanism</h3>
+        <div class="two-col">
+          <p class="body col">Once creator of the Quote sent it for review to collaborators, we had to figure out how to communicate this somehow complicated process in a simple way. Or did we? When I was thinking about how to achieve effective collaboration and ensure that all moving parts will go in the right direction, thought occurred to me - what if single user doesn't need to know everything?</p>
+          <p class="body col">Except the sales guy, but I'll get to that later. Exploring this direction, design doesn't communicate straight away complexities of process in its entirety. Rather focuses on showing user only things that require his attention.</p>
+        </div>
+      </div>
+      <div>
+        <h4>Main objectives</h4>
+        <ul class="body" style="width: 608px;">
+          <li>Make it easy for users to edit values repeatedly until they're satisfied with result</li>
+          <li>Let them change statuses as many time as they want before passing review to next collaborator in line</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual: Main objectives -->
+  <div class="vb">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 1204px; height: 1290.047px;">
+        <img src="https://www.figma.com/api/mcp/asset/ea61c68f-b7e5-4895-8acf-80ae5ae574e1" alt="Moving products between users" style="width: 104.16%; height: 103.88%; left: -2.09%; top: -1.17%;">
+      </div>
+    </div>
+    <p class="caption">Moving products between users based on status</p>
+  </div>
+
+  <!-- Other objectives -->
+  <div class="s" style="padding-top: 160px; padding-bottom: 80px;">
+    <h4>Other objectives</h4>
+    <ul class="body" style="width: 608px;">
+      <li>Indicate their position in process in subtle, non-intrusive way</li>
+      <li>Let them see items they're not responsible for in order to preserve the context</li>
+    </ul>
+  </div>
+
+  <!-- Visual: Other objectives -->
+  <div class="vb">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 1189px; height: 604.786px;">
+        <img src="https://www.figma.com/api/mcp/asset/871eccb5-5986-4922-ac26-92d09a655c61" alt="Seeing other items for context" style="width: 104.22%; height: 108.3%; left: -2.11%; top: -2.5%;">
+      </div>
+    </div>
+    <p class="caption">Seeing other items for preserving context of Quote</p>
+  </div>
+
+  <!-- Notifications -->
+  <div class="s" style="padding-top: 160px; padding-bottom: 80px;">
+    <h4>Notifications</h4>
+    <p class="body" style="width: 608px;">Of course in order for this to work properly, we needed a way how to communicate to users, that their collaboration is needed. For this we employed simple email and in-app notification.</p>
+  </div>
+
+  <!-- Visual: Notifications -->
+  <div class="vb">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 848px; height: 1873.488px;">
+        <img src="https://www.figma.com/api/mcp/asset/98e775cc-22d6-4739-87cb-99c50f31362f" alt="Notifications" style="width: 105.87%; height: 102.66%; left: -2.93%; top: -0.8%;">
+      </div>
+    </div>
+    <p class="caption">Notifications - email, real-time, in notification centre</p>
+  </div>
+
+  <!-- Comments as a way to communicate -->
+  <div class="s" style="padding-top: 160px; padding-bottom: 80px;">
+    <div style="display: flex; flex-direction: column; gap: 80px;">
+      <div>
+        <h3>Comments as a way to communicate</h3>
+        <div class="two-col">
+          <p class="body col">Whilst having a great mechanism for collaboratively working in Quote is awesome, it doesn't mean anything, if we wouldn't handle communication part as well. Since our users were mainly utilizing email for collaborating on Quotes, we needed a way how to let them do it in-app. We already had a message functionality in Quotes, but this feature was not utilized as much as we previously thought it would be.</p>
+          <p class="body col">This was caused by the fact, that most of the communication in Quote was happening on single product level (single row in table). Thing that our messaging wasn't able to cover.</p>
+        </div>
+      </div>
+      <div>
+        <h4>We had to take care of following</h4>
+        <ul class="body" style="width: 1232px;">
+          <li>Let users message to one another back and forth on single line item level, while maintaining context of item's values (i.e. showing the table)</li>
+          <li>Navigate users to correct line item while reading respective comment</li>
+          <li>Signify which line items have comment on them and which do not in the table</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual: Early sketches -->
+  <div class="vb">
+    <div class="vb-bg">
+      <div class="vb-frame simple" style="width: 1043px; height: 693.636px;">
+        <img src="https://www.figma.com/api/mcp/asset/6f1e32b4-2629-4194-a468-f0ac0292c5e4" alt="Early sketches of Comments">
+      </div>
+    </div>
+    <p class="caption">Early sketches of Comments</p>
+  </div>
+
+  <!-- Visual: Comments components -->
+  <div class="vb" style="padding-top: 160px;">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 1180px; height: 1600.769px;">
+        <img src="https://www.figma.com/api/mcp/asset/a0c6042c-7512-4d2c-b8d7-b2866bf7d8d4" alt="Comments components" style="width: 104.22%; height: 102.73%; left: -2.11%; top: -0.93%;">
+      </div>
+    </div>
+    <p class="caption">Comments components</p>
+  </div>
+
+  <!-- Visual: Adding comments -->
+  <div class="vb" style="padding-top: 160px;">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 848px; height: 1228.009px;">
+        <img src="https://www.figma.com/api/mcp/asset/860d6e5e-a657-47f7-b36e-6cde3d2685ac" alt="Adding comments to product" style="width: 105.89%; height: 104.07%; left: -2.94%; top: -1.22%;">
+      </div>
+    </div>
+    <p class="caption">Adding comments to product</p>
+  </div>
+
+  <!-- Visual: Filtering -->
+  <div class="vb" style="padding-top: 160px;">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 848px; height: 1202.301px;">
+        <img src="https://www.figma.com/api/mcp/asset/fccc4df1-8238-4cde-b479-7ce5b46cb4ac" alt="Filtering products with comment" style="width: 105.91%; height: 104.14%; left: -2.96%; top: -1.25%;">
+      </div>
+    </div>
+    <p class="caption">Filtering product with comment</p>
+  </div>
+
+  <!-- Activity log and Collaboration overview -->
+  <div class="s" style="padding-top: 160px; padding-bottom: 80px;">
+    <h3>Activity log and Collaboration overview</h3>
+    <p class="body" style="width: 608px;">As our customers are usually large enterprises, their processes must give a thought or two to audits. To know who did what, when and in which manner, was non-negotiable and we needed to provide a way how to track it and show it in our application. Hand in hand with that, we needed to show users the state of collaboration.</p>
+  </div>
+
+  <!-- Visual: Activity tracking -->
+  <div class="vb">
+    <div class="vb-bg">
+      <div class="vb-frame" style="width: 848px; height: 2090.479px;">
+        <img src="https://www.figma.com/api/mcp/asset/93a9ccf8-79aa-4c86-8e29-1e4dae6952ca" alt="Status and activity tracking" style="width: 105.79%; height: 102.37%; left: -2.9%; top: -0.7%;">
+      </div>
+    </div>
+    <p class="caption">Status and activity tracking in-app</p>
+  </div>
+
+  <!-- Delivery and results -->
+  <div class="s" style="padding-top: 160px; padding-bottom: 64px;">
+    <h2>Delivery and results</h2>
+    <div class="two-col">
+      <p class="body col-grow">When we've got this out of the door, we started gathering feedback from our customers. Generally, the feedback was great praising possibility to collaborate on Quote in such effective manner. Fast forward one year, and one of the TOP 10 customers - Exxon mobile, is already using it in their environment, citing this to be the only reason for renewing their yearly contract with Pricefx.</p>
+      <p class="body col">In addition to that, thanks to Collaboration Workflows, Pricefx was even able to negotiate higher pricing for Exxon's renewal. And now, Shell - another customer from TOP 10, is starting to test it on their environment.</p>
+    </div>
+  </div>
+
+  <!-- Footer nav -->
+  <div class="footer-nav">
+    <a href="index.html" class="nav-link">
+      <img class="nav-arrow nav-arrow-back" src="https://www.figma.com/api/mcp/asset/3367ed00-6ae2-474e-b90d-285963515eaa" alt="">
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="swipe-clean.html" class="nav-link">
+      <span class="nav-label">Next</span>
+      <img class="nav-arrow" src="https://www.figma.com/api/mcp/asset/c2416a71-c5e6-45c0-ace9-efb1760f9be8" alt="">
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

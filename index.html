@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Hajdúch — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f9f7f4;
+      color: #140f0b;
+      min-width: 1440px;
+    }
+
+    :root {
+      --side: max(104px, calc((100vw - 1232px) / 2));
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 104px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      width: 100%;
+      padding: 0 var(--side) 120px;
+    }
+
+    .hero h1 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 80px;
+      line-height: 100px;
+      letter-spacing: -2.176px;
+      color: #140f0b;
+    }
+
+    /* ── Case study row (text left, visual right) ── */
+    .case-row {
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 120px var(--side);
+    }
+
+    .case-text {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      flex-shrink: 0;
+      width: 608px;
+    }
+
+    .case-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #746d67;
+      margin-bottom: 4px;
+    }
+
+    .case-title {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: #140f0b;
+      margin-bottom: 4px;
+    }
+
+    .case-title.xl { font-size: 48px; }
+
+    .case-body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      color: #3a3836;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #140f0b;
+      color: #fcfbf9;
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      height: 40px;
+      padding: 4px 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+
+    /* ── Collaboration Workflows image ── */
+    .cw-image {
+      flex-shrink: 0;
+      width: 847px;
+      height: 528px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 32px rgba(0,0,0,.05), 0 2px 16px rgba(0,0,0,.04);
+    }
+
+    .cw-image img {
+      position: absolute;
+      width: 123.64%;
+      height: 138.11%;
+      left: -11.88%;
+      top: -19.05%;
+      max-width: none;
+    }
+
+    /* ── Swipe Clean section (phones bleed left, text right-aligned) ── */
+    .swipe-section {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding: 120px var(--side);
+    }
+
+    .swipe-phones {
+      display: inline-grid;
+      grid-template-columns: max-content;
+      grid-template-rows: max-content;
+      place-items: start;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+
+    .sp-left {
+      grid-column: 1;
+      grid-row: 1;
+      width: 454.64px;
+      height: 624px;
+    }
+
+    .sp-right {
+      grid-column: 1;
+      grid-row: 1;
+      width: 454.64px;
+      height: 624px;
+      margin-left: 344px;
+      margin-top: 50px;
+    }
+
+    .sp-left img,
+    .sp-right img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swipe-text {
+      flex-shrink: 0;
+      width: 608px;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    /* ── Clean Share phone stack ── */
+    .cs-visuals {
+      flex-shrink: 0;
+      width: 608px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cs-phones {
+      position: relative;
+      display: inline-grid;
+      grid-template-columns: max-content;
+      grid-template-rows: max-content;
+      place-items: start;
+    }
+
+    .cs-phone-back {
+      grid-column: 1;
+      grid-row: 1;
+      width: 314.89px;
+      height: 624px;
+      margin-left: 180px;
+      position: relative;
+    }
+
+    .cs-phone-front {
+      grid-column: 1;
+      grid-row: 1;
+      width: 316px;
+      height: 624px;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .cs-phone-back img,
+    .cs-phone-front img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      width: 100%;
+      padding: 64px var(--side);
+    }
+
+    .footer-email {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 34px;
+      color: #140f0b;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Adam Hajdúch<br>is a product designer at Gen.</h1>
+    </div>
+
+    <!-- Collaboration Workflows -->
+    <div class="case-row">
+      <div class="case-text">
+        <div>
+          <p class="case-label">Pricefx - Quoting · Desktop</p>
+          <p class="case-title">Collaboration Workflows</p>
+          <p class="case-body">Enabler for large enterprises in shortening time to Quote creation. This feature enabled multiple users to collaborate on creating Quote in parallel, at the same time, decreasing time needed for its completion and sending the Quote to a customer.</p>
+        </div>
+        <a href="collab-workflows.html" class="btn">See case study</a>
+      </div>
+      <div class="cw-image">
+        <img src="https://www.figma.com/api/mcp/asset/aeedf859-9474-4553-adf2-9cdf121401b4" alt="Collaboration Workflows screenshot">
+      </div>
+    </div>
+
+    <!-- Swipe Clean -->
+    <div class="swipe-section">
+      <div class="swipe-phones">
+        <div class="sp-left">
+          <img src="https://www.figma.com/api/mcp/asset/293a07ca-1bfd-4714-a351-c28af2333aab" alt="">
+        </div>
+        <div class="sp-right">
+          <img src="https://www.figma.com/api/mcp/asset/dbe81a13-e0e3-4c7d-9659-384928628e4d" alt="">
+        </div>
+      </div>
+      <div class="swipe-text">
+        <div>
+          <p class="case-label">Avast Cleaner · iOS</p>
+          <p class="case-title xl">Swipe Clean</p>
+          <p class="case-body">A new way to review and clean your photo gallery, one photo at a time, using swipe gestures to make cleaning feel like browsing. Photos are organised into familiar categories and bite-sized sets, so every session feels achievable and leaves user with something to show for it.</p>
+        </div>
+        <a href="swipe-clean.html" class="btn">See case study</a>
+      </div>
+    </div>
+
+    <!-- Clean Share -->
+    <div class="case-row">
+      <div class="case-text">
+        <div>
+          <p class="case-label">Avast Cleaner · iOS</p>
+          <p class="case-title">Clean Share</p>
+          <p class="case-body">A privacy feature that strips hidden metadata from photos before sharing, designed to build daily habits outside the app, embedded directly into the iOS share sheet where sharing already happens.</p>
+        </div>
+        <a href="clean-share.html" class="btn">See case study</a>
+      </div>
+      <div class="cs-visuals">
+        <div class="cs-phones">
+          <div class="cs-phone-back">
+            <img src="https://www.figma.com/api/mcp/asset/eeb5b27a-d9a6-4628-acfc-5afd667ada21" alt="">
+          </div>
+          <div class="cs-phone-front">
+            <img src="https://www.figma.com/api/mcp/asset/adb7f929-5672-481c-b24a-2118437be50b" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-email">hello@adamhajduch.com</p>
+    </div>
+
+  </div>
+</body>
+</html>

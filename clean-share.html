@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Share — Adam Hajdúch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f9f7f4;
+      min-width: 1440px;
+    }
+
+    :root {
+      --side: max(104px, calc((100vw - 1232px) / 2));
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 104px;
+    }
+
+    /* ── Typography ── */
+    .hero-title {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 80px;
+      line-height: 100px;
+      letter-spacing: -2.176px;
+      color: #140f0b;
+    }
+
+    h2 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: #140f0b;
+    }
+
+    .label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: #746d67;
+    }
+
+    .body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      color: #3a3836;
+    }
+
+    .meta-items {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 40px;
+      color: #3a3836;
+    }
+
+    /* ── Section layout ── */
+    .s {
+      width: 100%;
+      padding: 120px var(--side);
+    }
+
+    .s h2 { margin-bottom: 32px; }
+
+    .two-col {
+      display: flex;
+      gap: 16px;
+    }
+
+    .col { width: 608px; flex-shrink: 0; }
+
+    /* ── Beige ── */
+    .beige { background: #ede9e4; width: 100%; flex-shrink: 0; }
+
+    /* ── Hero phones (2 centered) ── */
+    .phones-2 {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+      height: 1006px;
+    }
+
+    /* ── Phones centered row (generic) ── */
+    .phones-row {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+      height: 985px;
+    }
+
+    /* ── Staggered onboarding screens ── */
+    .onboarding-container {
+      width: 100%;
+      height: 916px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* ── In-app flow section (phone left + text right + bottom sheets) ── */
+    .inapp-section {
+      width: 100%;
+      position: relative;
+      padding: 200px var(--side) 120px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .inapp-left {
+      width: 608px;
+      height: 759px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .inapp-right {
+      width: 608px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ── Footer nav ── */
+    .footer-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 64px var(--side);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+    }
+
+    .nav-label {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 34px;
+      color: #140f0b;
+      white-space: nowrap;
+    }
+
+    .nav-arrow { display: block; width: 67.368px; height: 23.158px; }
+    .nav-arrow-back { transform: scaleX(-1); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero heading -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <h1 class="hero-title">Clean Share is a privacy feature for Avast Cleanup on iOS that strips hidden metadata from photos before sharing them.</h1>
+  </div>
+
+  <!-- My role + Results -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <div class="two-col">
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">My role</p>
+        <div class="meta-items">
+          <p>End-to-end product design</p>
+          <p>Challenged and redefined original product brief</p>
+          <p>Collaborated with UX researchers, engineers, and PM</p>
+        </div>
+      </div>
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">Results</p>
+        <div class="meta-items">
+          <p>Feature shipped on iOS</p>
+          <p>Part of Avast Cleaner's broader privacy feature ecosystem</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero phones -->
+  <div class="beige">
+    <div class="phones-2">
+      <img src="https://www.figma.com/api/mcp/asset/24b72835-2388-4532-a820-218ea1f0e946" alt="Share with hidden data" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/2bc55abc-857f-4154-bd85-f3508493d47a" alt="Data removed" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+    </div>
+  </div>
+
+  <!-- Only 1 in 10 users -->
+  <div class="s">
+    <h2 style="max-width: 1165px;">Only 1 in 10 users who installed Cleaner<br>ever came back.</h2>
+    <div class="two-col">
+      <p class="body col">Avast Cleaner helps iOS users remove duplicate photos, blurry shots, and junk files. The app does its job well — but that was the problem. Users would install it, clean their phone once, and leave. With day-one retention at 10% and declining from there, the issue wasn't quality. A cleaning app, by nature, solves a problem users only feel occasionally.</p>
+      <p class="body col">To build retention, we needed to give people a reason to return that didn't depend on their storage being full. The question became: what behavior do our users already perform every day that we could attach real value to?</p>
+    </div>
+  </div>
+
+  <!-- Photos carry more information (text left, phone right) -->
+  <div class="s">
+    <div class="two-col">
+      <div class="col" style="display: flex; flex-direction: column; gap: 32px;">
+        <h2>Photos carry more information than most people realize, and most users have no idea.</h2>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <p class="body">Every photo taken on an iPhone stores metadata alongside the image: exact location, date, time, and the device it was taken on. This data travels invisibly with every photo that gets shared. When we looked at how users actually think about sharing risk, 74% said their main protection strategy was sharing only with people they trusted. The metadata exposure wasn't on their radar at all.</p>
+          <p class="body">Our qualitative research confirmed it: users based their risk assessment entirely on their relationship with the recipient, unaware that a conversation could be hijacked, or that a photo could reveal their home address and daily routine to someone other than the intended recipient. When shown what their photos actually contained, two thirds rated automatic metadata removal as extremely or very valuable.</p>
+          <p class="body">Sharing photos is something people do multiple times a day without thinking. That habitual behavior was exactly what we needed.</p>
+        </div>
+      </div>
+      <div class="col" style="display: flex; align-items: center; justify-content: center;">
+        <img src="https://www.figma.com/api/mcp/asset/b290d8e2-19e4-4cea-bfcf-04d80a7153ab" alt="Photo with metadata" style="width: 383.016px; height: 759px; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </div>
+
+  <!-- The original brief would have bloated the device -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The original brief would have bloated the device every time the feature was used - the opposite of what Cleaner is for.</h2>
+    <div class="two-col">
+      <p class="body col">The initial product direction was broader: strip metadata from photos and save clean copies to the device, letting users decide what to do with them afterward. I pushed back on this. It introduced significant complexity — clean copies would need to be differentiated from originals, stored somewhere, managed over time. More importantly, it worked against the app's core purpose. Cleaner exists to keep a device lean and organized.</p>
+      <p class="body col">I made the case to narrow the scope to a single use case: sharing. Instead of saving cleaned copies to the device, we strip the metadata at the moment of sharing and send only the clean copy. The original stays untouched. This eliminated the storage problem entirely, aligned with Cleaner's existing purpose, and tied the feature to a behavior users already perform every day.</p>
+    </div>
+  </div>
+
+  <!-- The threat needed to feel real -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The threat needed to feel real before the solution could feel necessary.</h2>
+    <div class="two-col">
+      <p class="body col">For Clean Share to matter to users, they first had to understand what they were protecting themselves from. Most people had never thought about metadata — not because they don't care about privacy, but because the risk is completely invisible during normal use. The challenge was making it tangible without alarming people.</p>
+      <p class="body col">The onboarding opens with a photo overlaid with the data it silently carries: a precise street address, a date, a time, a device model. No abstract language — just the actual information that travels with every photo a user sends. Only after that does the solution appear. Leading with the feature would have felt abstract. Showing the metadata first makes the removal feel meaningful.</p>
+    </div>
+  </div>
+
+  <!-- Onboarding screens (staggered) -->
+  <div class="onboarding-container">
+    <img src="https://www.figma.com/api/mcp/asset/571e4e5f-aa0a-4f94-b0a5-1f4d2aac6f66" alt="Onboarding 1" style="position: absolute; left: calc(var(--side) + 83px); top: 155.84px; width: 323.453px; height: 700px; object-fit: cover;">
+    <img src="https://www.figma.com/api/mcp/asset/eb615f56-b5e5-4257-875d-ae4bf0b4b9a8" alt="Onboarding 2" style="position: absolute; left: calc(var(--side) + 454.45px); top: 55.84px; width: 323.453px; height: 700px; object-fit: cover;">
+    <img src="https://www.figma.com/api/mcp/asset/6b5481e1-417b-48cc-84e6-d495c2b86be4" alt="Onboarding 3" style="position: absolute; left: calc(var(--side) + 825.91px); top: 105.84px; width: 323.453px; height: 700px; object-fit: cover;">
+  </div>
+
+  <!-- I wanted users to see exactly what was happening (phone left, text right, bottom sheets) -->
+  <div class="inapp-section">
+    <!-- Left: phone -->
+    <div class="inapp-left">
+      <img src="https://www.figma.com/api/mcp/asset/24b72835-2388-4532-a820-218ea1f0e946" alt="Share screen" style="position: absolute; left: 112px; top: 0; width: 383.016px; height: 759px; object-fit: cover;">
+    </div>
+    <!-- Right: text -->
+    <div class="inapp-right">
+      <h2>I wanted users to see exactly what was happening and what would happen next, at every step.</h2>
+      <p class="body">The in-app flow was designed around clarity of process. Users select photos, confirm through a bottom sheet that explains precisely what will occur — a clean copy will be created, hidden details removed, the original untouched — then watch the removal happen before the native iOS sharing sheet opens. Each state communicates its own stage in the sequence: selecting, confirming, removing, done.</p>
+    </div>
+    <!-- Bottom sheets (positioned relative to inapp-section) -->
+    <img src="https://www.figma.com/api/mcp/asset/bcc13155-fab3-4ba6-85d8-648f333593fd" alt="Removing metadata" style="position: absolute; left: calc(var(--side) + 520px); top: 709px; width: 323px; height: 215.328px; object-fit: cover;">
+    <img src="https://www.figma.com/api/mcp/asset/505be61e-964f-4d43-82f3-873e93a480eb" alt="Success" style="position: absolute; left: calc(var(--side) + 883px); top: 709px; width: 323px; height: 215.328px; object-fit: cover;">
+  </div>
+
+  <!-- "View hidden data" text -->
+  <div class="s" style="padding-top: 120px; padding-bottom: 100px;">
+    <p class="body" style="max-width: 1232px;">The "View hidden data" option in the confirmation sheet was included for the same reason as the onboarding: users who want to see what they're protecting themselves from can inspect the exact metadata before it's removed. Making this inspectable on demand reinforces why the action is worth taking, rather than asking users to trust a feature they can't verify.</p>
+  </div>
+
+  <!-- Preview multi phones (3 centered, mixed heights) -->
+  <div style="width: 100%;">
+    <div class="phones-row">
+      <img src="https://www.figma.com/api/mcp/asset/f33c9297-064c-4b03-bb1a-93944c0c80f8" alt="Select 4 photos" style="width: 300.344px; height: 650px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/a69c8a00-702d-43a7-91ea-b03fb700ec47" alt="Preview multi frame" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/616a5345-1538-4a36-a7c7-2077f582ac17" alt="Select 8 photos" style="width: 300.344px; height: 650px; object-fit: cover; flex-shrink: 0; display: block;">
+    </div>
+  </div>
+
+  <!-- The in-app flow was always meant to be a bridge -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The in-app flow was always meant to be a bridge, not the destination.</h2>
+    <div class="two-col">
+      <p class="body col">The long-term goal was habitual use — not habitual use of the Cleaner app specifically, but habitual safe sharing from wherever photos actually live. The plan was to use the in-app experience to educate users and build familiarity with the feature first, then drive them toward the sharing extension — where Clean Share would be available directly inside the native iOS sharing sheet, without ever opening Cleaner. This transition was timed deliberately: immediately after a user successfully shares their first clean photo, a success screen introduces the extension as a faster path. The prompt is earned — it appears when the value of the feature has just been demonstrated, not before.</p>
+      <p class="body col">iOS extensions appear automatically in the system sharing sheet once the app is installed — but by default they land at the bottom of a long list, well below the actions users interact with regularly. For Clean Share to become habitual, it needed to be in the Favourites row at the very top, visible every time across every app on the system. This required a short one-time setup: open the share sheet, tap Edit Actions, and pin Clean Share to Favourites. We built a two-screen guided flow that walks users through each step, with a button that opens the share sheet immediately so the action can be completed in the same moment rather than remembered for later.</p>
+    </div>
+  </div>
+
+  <!-- Extension nudge + setup phones (3 centered, 323×700) -->
+  <div style="width: 100%;">
+    <div class="phones-row">
+      <img src="https://www.figma.com/api/mcp/asset/d02bd467-b783-4f61-b16b-74ea43a3841f" alt="1 item shared safely — extension nudge" style="width: 323.453px; height: 700px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/a76e1315-8569-491b-8e91-afb74d6a6f2d" alt="Tap Edit Actions in share menu" style="width: 323.453px; height: 700px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/3e509f97-e683-48ad-91ef-bc2658b26452" alt="Add Clean Share to favourites" style="width: 323.453px; height: 700px; object-fit: cover; flex-shrink: 0; display: block;">
+    </div>
+  </div>
+
+  <!-- A feature that lives outside the app -->
+  <div class="s">
+    <h2 style="max-width: 885px;">A feature that lives outside the app can easily make the app invisible.</h2>
+    <div class="two-col">
+      <p class="body col">Once users start sharing via the extension, they may never open Cleaner again. That's a success from a usage standpoint — but it creates a different problem: the app that built this capability disappears from view entirely. The success state in the extension was designed to address this directly.</p>
+      <p class="body col">After metadata is removed, the confirmation reads: "Hidden data removed successfully. Protected by Avast." The branding isn't decorative. It keeps the connection between the safe sharing action and the product that enables it explicit — building that association every single time the feature is used.</p>
+    </div>
+  </div>
+
+  <!-- Extension phones in beige (3 centered, 383×759) -->
+  <div class="beige">
+    <div class="phones-row">
+      <img src="https://www.figma.com/api/mcp/asset/f15d685f-f2b9-411c-b80e-45826beb54fd" alt="Photo" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/739e9899-6e14-40a7-acca-1089b6386d7d" alt="Share sheet" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/b48a4d6f-4df0-42c6-b46e-802affafc29f" alt="Protected by Avast" style="width: 383.016px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+    </div>
+  </div>
+
+  <!-- The goal was never to make users open Cleaner more often -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The goal was never to make users open Cleaner more often. It was to make Cleaner useful in a place they already were.</h2>
+    <div class="two-col">
+      <p class="body col">Clean Share is built on a deliberate assumption: that a habit formed outside the app is still a habit. Each time a user taps the extension in their share sheet, they're reminded that Avast is protecting them — not inside a utility they open once a month, but in a gesture woven into how they communicate every day.</p>
+      <p class="body col">Whether that assumption holds is something the data will eventually confirm. The design was built to give it the best possible chance.</p>
+    </div>
+  </div>
+
+  <!-- Footer nav (Home only — last case study) -->
+  <div class="footer-nav">
+    <a href="index.html" class="nav-link">
+      <img class="nav-arrow nav-arrow-back" src="https://www.figma.com/api/mcp/asset/3c53741c-ee20-42fd-ba78-c28bcc097d5f" alt="">
+      <span class="nav-label">Home</span>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

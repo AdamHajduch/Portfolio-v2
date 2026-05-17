@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swipe Clean — Adam Hajdúch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f9f7f4;
+      min-width: 1440px;
+    }
+
+    :root {
+      --side: max(104px, calc((100vw - 1232px) / 2));
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 104px;
+    }
+
+    /* ── Typography ── */
+    .hero-title {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 80px;
+      line-height: 100px;
+      letter-spacing: -2.176px;
+      color: #140f0b;
+    }
+
+    h2 {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: #140f0b;
+    }
+
+    .label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1.54px;
+      text-transform: uppercase;
+      color: #746d67;
+    }
+
+    .body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+      color: #3a3836;
+    }
+
+    .meta-items {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 40px;
+      color: #3a3836;
+    }
+
+    /* ── Layout ── */
+    .s {
+      width: 100%;
+      padding: 120px var(--side);
+    }
+
+    .s h2 { margin-bottom: 32px; }
+
+    .two-col {
+      display: flex;
+      gap: 16px;
+    }
+
+    .col { width: 608px; flex-shrink: 0; }
+
+    /* ── Beige containers ── */
+    .beige {
+      background: #ede9e4;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* ── Hero phones: centered pair ── */
+    .hero-phones {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+      height: 1006px;
+    }
+
+    .hero-phones img {
+      width: 553.125px;
+      height: 759px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ── Main screen: overflowing landscape image ── */
+    .main-screen-container {
+      padding: 60px var(--side);
+      height: 1320px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .main-screen-container img {
+      width: 1756.625px;
+      height: 1200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* ── Set size rule image ── */
+    .set-rule-container {
+      padding: 150px var(--side);
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .set-rule-container img {
+      width: 1281.563px;
+      height: 580px;
+      object-fit: cover;
+    }
+
+    /* ── Interaction screenshots (no bg) ── */
+    .interaction-container {
+      width: 100%;
+      padding: 60px var(--side);
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .interaction-top {
+      display: flex;
+      gap: 216px;
+      align-items: center;
+    }
+
+    .interaction-bottom {
+      position: relative;
+      height: 759px;
+      width: 1232px;
+    }
+
+    /* ── End screens: centered 2×2 phone grid ── */
+    .end-screens {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .end-row {
+      display: flex;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .end-row img {
+      width: 382.906px;
+      height: 759px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer nav ── */
+    .footer-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 64px var(--side);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+    }
+
+    .nav-label {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 500;
+      font-size: 34px;
+      color: #140f0b;
+      white-space: nowrap;
+    }
+
+    .nav-arrow { display: block; width: 67.368px; height: 23.158px; }
+    .nav-arrow-back { transform: scaleX(-1); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero heading -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <h1 class="hero-title">Swipe Clean is a new way to review and clean your photo gallery, one photo at a time, using swipe gestures.</h1>
+  </div>
+
+  <!-- My role + Results -->
+  <div class="s" style="padding-top: 0; padding-bottom: 100px;">
+    <div class="two-col">
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">My role</p>
+        <div class="meta-items">
+          <p>End-to-end product design</p>
+          <p>Designed photo categorization and set logic system</p>
+          <p>Collaborated with UX researchers, engineers, and PM</p>
+        </div>
+      </div>
+      <div class="col">
+        <p class="label" style="margin-bottom: 14px;">Results</p>
+        <div class="meta-items">
+          <p>Feature shipped on iOS</p>
+          <p>Usability testing confirmed swiping rated as faster, more fun, and more satisfying than existing manual cleaning methods</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero: two swipe phones -->
+  <div class="beige">
+    <div class="hero-phones">
+      <img src="https://www.figma.com/api/mcp/asset/096390cb-430a-44f1-8031-a56dd8f189e1" alt="Swipe left">
+      <img src="https://www.figma.com/api/mcp/asset/818b360e-6aa3-44be-84c5-fbc057966d93" alt="Swipe right">
+    </div>
+  </div>
+
+  <!-- Users came, cleaned once -->
+  <div class="s">
+    <h2 style="max-width: 1165px;">Users came, cleaned once, and never came back, and we kept asking the same question about why.</h2>
+    <div class="two-col">
+      <p class="body col">The retention problem in Avast Cleaner wasn't a mystery. Cleaning is a task people perform reactively, when storage pressure forces their hand. Without that pressure, there's no reason to return. Our research made the emotional dimension of this plain: users who didn't manage their photos regularly described feeling overwhelmed, guilty, and avoidant about it.</p>
+      <p class="body col">They knew their gallery was a mess, felt ashamed of it, and dealt with the feeling by buying more cloud storage rather than actually cleaning. The challenge we kept coming back to was whether cleaning could become something users actually wanted to do — not a chore triggered by a full phone, but something they'd reach for on their own.</p>
+    </div>
+  </div>
+
+  <!-- The grid wasn't overwhelming -->
+  <div class="s">
+    <h2 style="max-width: 1165px;">The grid wasn't overwhelming because users had too many photos. It was overwhelming because the photos had no meaning in that form.</h2>
+    <div class="two-col">
+      <p class="body col">Our existing cleaning interface showed photos as a grid of small thumbnails organized by month — which could contain anywhere from a handful to several thousand images. At thumbnail size, making a decision about any individual photo is nearly impossible. There's no context, no narrative, no way to orient yourself within the mass of images. Users would open it, feel immediately lost, and close it again.</p>
+      <p class="body col">Swiping one photo at a time would solve part of the problem, but not the underlying one. To make cleaning feel manageable, we first needed to give the gallery structure that users could actually navigate.</p>
+    </div>
+  </div>
+
+  <!-- Main screen (overflowing image) -->
+  <div class="beige main-screen-container">
+    <img src="https://www.figma.com/api/mcp/asset/08df5e5b-ed1b-47db-be46-dab211fa0f90" alt="Main screen with categories">
+  </div>
+
+  <!-- We organised the entire gallery -->
+  <div class="s">
+    <h2 style="max-width: 885px;">We organised the entire gallery into categories users already recognised, then broke each one into sets small enough to finish in a single session.</h2>
+    <div class="two-col">
+      <p class="body col">The categorization system was the core design work of the project. I defined eight categories — Utility photos, Moments, Trips, Holidays, Events, People, Pets, and Months — each with its own logic for detecting and grouping photos using metadata like location, date, time, and content recognition. Within each category, photos are further divided into sets bounded by a strict rule: every set must contain between 10 and 80 photos.</p>
+      <p class="body col">The 80-photo ceiling was a deliberate design constraint. A set that can be swiped in a few minutes delivers immediate, tangible value — the space saved number updates, the set disappears, progress is visible. The category names and section headings were written to feel like reviewing memories, not managing storage. "Retrace your steps" for trips, "Moments" for algorithmically surfaced highlights.</p>
+    </div>
+  </div>
+
+  <!-- Set size rule image -->
+  <div class="beige set-rule-container">
+    <img src="https://www.figma.com/api/mcp/asset/9b28d917-d9d4-4a45-8a9f-6bf18f146d78" alt="Set size rule: 10–80 photos">
+  </div>
+
+  <!-- The interaction needed to feel obvious -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The interaction needed to feel immediately obvious. In testing, users compared it to dating apps within the first few photos.</h2>
+    <div class="two-col">
+      <p class="body col">The swiping interaction had one job: make each decision feel fast and consequence-free. Photos go to Trash, not permanent deletion — nothing is gone until the user decides to empty it. This separation was important because users in research consistently said they wanted control over deletion. The swipe is a sort, not a delete. Making that distinction clear in the interaction itself was the difference between an experience that felt safe to use quickly and one that felt risky.</p>
+      <p class="body col">Feedback was designed to be immediate and legible at a glance. Color, motion, and a running counter all confirm what just happened without requiring the user to stop and read anything. In usability testing, the icon set and counter were described as a no-brainer — users picked up the pattern within the first two photos and kept going without hesitation. Several compared it to a game. That was exactly the response we were looking for.</p>
+    </div>
+  </div>
+
+  <!-- Interaction screenshots -->
+  <div class="interaction-container">
+    <!-- Top row: swiping + result -->
+    <div class="interaction-top">
+      <img src="https://www.figma.com/api/mcp/asset/0e8d7831-663c-45a8-a9fb-8576e7299eb3" alt="Swipe interaction" style="width: 534.875px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+      <img src="https://www.figma.com/api/mcp/asset/2faebbb1-8c69-487b-8813-4a3bcf9c3cde" alt="Result" style="width: 382.906px; height: 759px; object-fit: cover; flex-shrink: 0; display: block;">
+    </div>
+    <!-- Bottom row: swipe right + result 2 -->
+    <div class="interaction-bottom">
+      <img src="https://www.figma.com/api/mcp/asset/818b360e-6aa3-44be-84c5-fbc057966d93" alt="Swipe right" style="position: absolute; left: 156px; top: 0; width: 553px; height: 759px; object-fit: cover;">
+      <img src="https://www.figma.com/api/mcp/asset/92615588-dc80-4e3e-82ff-658d59589f2e" alt="Result 2" style="position: absolute; left: 755.06px; top: 0; width: 382.906px; height: 759px; object-fit: cover;">
+    </div>
+  </div>
+
+  <!-- The end of each set -->
+  <div class="s">
+    <h2 style="max-width: 885px;">The end of each set is where the work becomes real.</h2>
+    <div class="two-col">
+      <p class="body col">Deletion lives in Trash rather than at the end of the swipe flow for a simple reason: Avast Cleaner already had a dedicated Trash section where all other deletions happened. Embedding deletion inside Swipe Clean would have split the same action across two different places in the app. Keeping it consistent meant directing users to Trash after swiping.</p>
+      <p class="body col">The end of each set is a moment of payoff — the first place where the value of what the user just did becomes concrete. The number of photos sorted and the space that will be freed are shown before any permanent action is taken, giving users a reason to keep going without pressure to commit immediately.</p>
+    </div>
+  </div>
+
+  <!-- End screens: 2×2 phone grid -->
+  <div class="beige">
+    <div class="end-screens">
+      <div class="end-row">
+        <img src="https://www.figma.com/api/mcp/asset/e128818b-3f87-4a2b-a715-e4fb16252596" alt="End of set screen">
+        <img src="https://www.figma.com/api/mcp/asset/1d3521f0-5a2f-418c-914b-d527b828f06b" alt="Trash screen">
+      </div>
+      <div class="end-row">
+        <img src="https://www.figma.com/api/mcp/asset/bb607d7b-5c0e-495a-8039-75569fd0fbad" alt="Cleaned screen">
+        <img src="https://www.figma.com/api/mcp/asset/7b1ff5af-d12f-4ab6-b42a-5b4e88e1b332" alt="Chart screen">
+      </div>
+    </div>
+  </div>
+
+  <!-- Cleaning a gallery full of memories -->
+  <div class="s">
+    <h2 style="max-width: 885px;">Cleaning a gallery full of memories should feel like revisiting them — not filing paperwork.</h2>
+    <div class="two-col">
+      <p class="body col">Every interaction in Swipe Clean is designed to work in the same direction: reduce friction, deliver value immediately, and make the next session feel like something worth coming back to. Sets are small enough to finish. Categories are familiar enough to navigate. Copy frames the experience as browsing, not maintenance.</p>
+      <p class="body col">The space saved counter makes progress visible across sessions. Whether the sum of these decisions produces the habitual engagement we set out to build is what the data will confirm — but every design choice was made with that single goal in mind.</p>
+    </div>
+  </div>
+
+  <!-- Footer nav -->
+  <div class="footer-nav">
+    <a href="index.html" class="nav-link">
+      <img class="nav-arrow nav-arrow-back" src="https://www.figma.com/api/mcp/asset/80b8072f-3a0f-4158-acf5-159068aa7ac8" alt="">
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="clean-share.html" class="nav-link">
+      <span class="nav-label">Next</span>
+      <img class="nav-arrow" src="https://www.figma.com/api/mcp/asset/007e8ae2-17d6-4568-8e4d-b2f37565925e" alt="">
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
