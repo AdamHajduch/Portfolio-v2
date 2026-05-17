@@ -164,8 +164,10 @@
       white-space: nowrap;
     }
 
-    .nav-arrow { display: block; width: 67.368px; height: 23.158px; }
+    .nav-arrow { display: block; width: 67.368px; height: 23.158px; color: #140f0b; transition: color 0.15s ease; }
     .nav-arrow-back { transform: scaleX(-1); }
+    .nav-link:hover .nav-arrow  { color: #281F15; }
+    .nav-link:active .nav-arrow { color: #37291A; }
   </style>
 </head>
 <body>
@@ -334,7 +336,7 @@
   <!-- Footer nav (Home only — last case study) -->
   <div class="footer-nav">
     <a href="index.html" class="nav-link">
-      <svg class="nav-arrow nav-arrow-back" width="67" height="23" viewBox="0 0 67 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 11.5H57M57 11.5L46 1.5M57 11.5L46 21.5" stroke="#140f0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="nav-arrow nav-arrow-back" width="67" height="23" viewBox="0 0 67 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 11.5H57M57 11.5L46 1.5M57 11.5L46 21.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="nav-label">Home</span>
     </a>
   </div>
