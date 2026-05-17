@@ -214,6 +214,11 @@
   </style>
 </head>
 <body>
+  <script>
+    if (!sessionStorage.getItem('portfolio_auth')) {
+      window.location.replace('password.html?next=swipe-clean.html');
+    }
+  </script>
 <div class="page">
 
   <!-- Hero heading -->

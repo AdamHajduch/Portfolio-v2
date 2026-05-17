@@ -171,6 +171,11 @@
   </style>
 </head>
 <body>
+  <script>
+    if (!sessionStorage.getItem('portfolio_auth')) {
+      window.location.replace('password.html?next=clean-share.html');
+    }
+  </script>
 <div class="page">
 
   <!-- Hero heading -->
